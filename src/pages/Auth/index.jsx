@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react';
+import { Route} from 'react-router-dom';
+
 
 import { LoginForm } from "modules";
 
@@ -11,7 +13,8 @@ const Auth = () => {
           <section className="auth">
           <div className="auth__top">
 
-               <LoginForm />
+              <Route exact path="/"  component={LoginForm} />
+              <Route path="/:(/register"  render={() =>  <h1>Hello</h1> }/>
                 </div>
               </section>
             );

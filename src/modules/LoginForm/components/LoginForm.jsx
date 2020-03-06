@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Form, Input, Icon, Checkbox } from 'antd';
+import { Form, Input, Icon } from 'antd';
 import { Link } from 'react-router-dom';
 import { Button , Block} from 'components'
 
-export default class LoginForm extends Component {
+class LoginForm extends Component {
   render(){
     return(
 <div>
@@ -28,20 +28,19 @@ export default class LoginForm extends Component {
         )}
       </Form.Item>
       <Form.Item > 
-        <Button 
-        type="primary"
-        size="large"
-        >
+        <Button type="primary" size="large">
           Войти в аккаунт
         </Button>
       </Form.Item>
 
-        <Link className="auth__register-link" to="/register"></Link>
+        <Link className="auth__register-link" to="/register">
+          Зарегистрироваться
+        </Link>
 
     </Form>
     </Block>
 </div>
-    )
+    );
   }
 }
 

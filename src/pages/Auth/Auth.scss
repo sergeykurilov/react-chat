@@ -32,6 +32,28 @@
   }
 
 
+  &__success-block{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 400px;
+    svg{
+      width: 48px;
+      height: 48px;
+    }
+    h2{
+      color: #202002;
+      font-size: 22px;
+      margin-top: 10px;
+    }
+    p{
+      color: #202002;
+      font-size: 14px;
+    }
+  }
+
 .button{
   font-weight: 500;
   font-size: 14px;

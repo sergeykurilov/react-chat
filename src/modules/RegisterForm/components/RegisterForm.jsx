@@ -3,18 +3,7 @@ import { Form, Input, Icon } from 'antd';
 import { Link } from 'react-router-dom';
 import { Button , Block} from 'components'
 const success  = false;
-const validate = (key ,touched, errors) =>{
-  if(touched[key]){
-    if(errors[key]){
-      return 'error';
-    }else {
-      return 'success';
-    }
-  }
-}
-
-
-const LoginForm = props => {
+const RegisterForm = props => {
   const {
     values,
     touched,
@@ -28,15 +17,15 @@ const LoginForm = props => {
   return (
     <div>
     <div className="auth__content">
-        <h2>Войти в аккаунт</h2>
-        <p>Пожалуйста, войдите в свой аккаунт</p>
-    </div>
+          <h2>Регистрация</h2>
+          <p>Для входа в чат, вам необходимо зарегистрироваться</p>
+          </div>
           <Block>
          {!success ?  <Form onSubmit={handleSubmit} className="login-form">
-          <Form.Item 
-          validateStatus={validate('E-mail', touched, errors)}
-           
-            help = {!touched.email ? "" : errors.email}
+          <Form.Item validateStatus={
+            !touched.email ? '' : errors.email ? 'error' : 'success' 
+            }
+            help = {!touched.email ? '' : errors.email}
              hasFeedback>
               <Input
               id="email"
@@ -48,7 +37,12 @@ const LoginForm = props => {
                 onBlur={handleBlur}
               />
           </Form.Item>
-         
+          <Form.Item>
+              <Input
+                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                placeholder="Username"
+              />
+          </Form.Item>
     
           <Form.Item
           validateStatus={
@@ -68,16 +62,23 @@ const LoginForm = props => {
               />
         
           </Form.Item>
+          <Form.Item>
+              <Input
+                prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                type="password"
+                placeholder="Повторите пароль"
+              />
         
+          </Form.Item>
           <Form.Item >
           {isSubmittig && !isValid && <span>Error</span>} 
             <Button onClick={handleSubmit} type="primary" size="large">
-              Войти в аккаунт
+              Зарегистрироваться
             </Button>
           </Form.Item>
     
-            <Link className="auth__register-link" to="/register">
-            Зарегистрироваться
+            <Link className="auth__register-link" to="/login">
+              Войти в аккаунт
             </Link>
     
         </Form> : <div className="auth__success-block">
@@ -89,6 +90,6 @@ const LoginForm = props => {
         </div>}
         </Block>
     </div>
-        ); 
-}
-export default LoginForm;
+        );
+      };
+export default RegisterForm;

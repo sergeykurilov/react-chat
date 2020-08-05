@@ -34,6 +34,31 @@
   text-align: center;
 }
 
+.auth__success-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 400px;
+}
+
+.auth__success-block svg {
+  width: 48px;
+  height: 48px;
+}
+
+.auth__success-block h2 {
+  color: #202002;
+  font-size: 22px;
+  margin-top: 10px;
+}
+
+.auth__success-block p {
+  color: #202002;
+  font-size: 14px;
+}
+
 .auth .button {
   font-weight: 500;
   font-size: 14px;

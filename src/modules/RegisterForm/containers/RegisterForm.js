@@ -1,18 +1,18 @@
-import LoginForm from "../components/LoginForm";
+import RegisterForm from "../components/RegisterForm";
 import { withFormik } from 'formik';
-import validateForm from "utils/validate";
+import validateFunc from "utils/validate";
 
 export default withFormik({
-  enableReinitialize: true,
-  mapPropsToValues: () => ({ 
-    email: '',
-    password: '',
-   }),
 
   validate: values => {
     let errors = {};
 
-    const validate = validateForm ({isAuth: true, values, errors});
+    const validate = validateFunc({isAuth: false});
+
+
+    Object.keys(values).forEach(
+      key => validate[key] && validate[key](errors, key, values[key]
+    ));
 
     return errors;
   },
@@ -23,5 +23,5 @@ export default withFormik({
       setSubmitting(false);
     }, 1000);
   },
-  displayName: 'LoginForm',
-})(LoginForm);
+  displayName: 'RegisterForm',
+})(RegisterForm);

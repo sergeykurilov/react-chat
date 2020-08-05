@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Block } from "./components";
-import { Auth } from "./pages";
+import { Route } from "react-router-dom";
+import { Auth , Home } from "./pages";
 
 import "./styles/index.scss";
 
@@ -8,7 +8,8 @@ import "./styles/index.scss";
 function App() {
   return (
     <div className="wrapper">
-        <Auth />
+          <Route exact path={["/", "/login" ,"/register"]}  component={Auth} />
+          <Route exact path="/im"  component={Home} />
     </div>
     
   );
